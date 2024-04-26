@@ -19,6 +19,7 @@ const Navbar = () => {
                 <li>
                     <NavLink
                         to='/'
+                        onClick={() => context.setSearchByCategory()}
                         className={({ isActive }) =>
                         isActive ? activeStyle : undefined
                     }>
@@ -27,49 +28,45 @@ const Navbar = () => {
                 </li>
                 <li>
                     <NavLink
-                        to='/clothes'
+                        to='/mens-clothing'
+                        onClick={() => context.setSearchByCategory("Men's clothing")}
                         className={({ isActive }) =>
                         isActive ? activeStyle : undefined
                     }>
-                        Clothes
+                        Men's clothing
+                    </NavLink>
+                </li>
+                <li>
+                    <NavLink
+                        to='/women-clothing'
+                        onClick={() => context.setSearchByCategory("Women's clothing")}
+                        className={({ isActive }) =>
+                        isActive ? activeStyle : undefined
+                    }>
+                        Women's clothing
+                    </NavLink>
+                </li>
+                <li>
+                    <NavLink
+                        to='/jewelery'
+                        onClick={() => context.setSearchByCategory('jewelery')}
+                        className={({ isActive }) =>
+                            isActive ? activeStyle : undefined
+                        }>
+                        Jewelery
                     </NavLink>
                 </li>
                 <li>
                     <NavLink
                         to='/electronics'
+                        onClick={() => context.setSearchByCategory('electronics')}
                         className={({ isActive }) =>
                         isActive ? activeStyle : undefined
                     }>
                         Electronics
                     </NavLink>
                 </li>
-                <li>
-                    <NavLink
-                        to='/furnitures'
-                        className={({ isActive }) =>
-                            isActive ? activeStyle : undefined
-                        }>
-                        Furnitures
-                    </NavLink>
-                </li>
-                <li>
-                    <NavLink
-                        to='/toys'
-                        className={({ isActive }) =>
-                        isActive ? activeStyle : undefined
-                    }>
-                        Toys
-                    </NavLink>
-                </li>
-                <li>
-                    <NavLink
-                        to='/others'
-                        className={({ isActive }) =>
-                        isActive ? activeStyle : undefined
-                    }>
-                        Others
-                    </NavLink>
-                </li>
+               
             </ul>
             <ul className="flex items-center gap-3">
                 <li className="text-black/60">
@@ -104,7 +101,7 @@ const Navbar = () => {
                 </li>
                 <li className="flex items-center">
                 <BuildingStorefrontIcon className="h-6 w-6 text-black"></BuildingStorefrontIcon> 
-                <div>{context.count}</div>
+                <div>{context.cartProducts.length}</div>
                 </li>
             </ul>
         </nav>
